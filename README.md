@@ -10,10 +10,10 @@ View demo [_here_](https://google.com)
 ## Usage
 
 ## Collaborators
-* Egemenelz
-* Yoli19
-* Abstrack5
-* Lissygonz
+* [Egemenelz](https://github.com/egemenelz)
+* [Yoli19](https://github.com/Yoli19)
+* [Abstrack5](https://github.com/Abstrack5)
+* [Lissygonz](https://github.com/Lissygonz)
 
 ## License ![GitHub](https://img.shields.io/github/license/abstrack5/EASYL)
 Copyright (c) 2022 JEGA, Inc.
