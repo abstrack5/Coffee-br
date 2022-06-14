@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS easyl_db;
+
+CREATE DATABASE easyl_db;
