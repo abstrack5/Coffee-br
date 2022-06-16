@@ -50,7 +50,6 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   Employee.create({
     username: req.body.username,
     password: req.body.password,

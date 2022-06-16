@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
     Flavor.findOne({
-    attributes: { type },
+    attributes: [ "type" ],
     where: {
       id: req.params.id,
     },

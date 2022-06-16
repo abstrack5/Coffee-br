@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   Employee.findOne({
-    attributes: { base, price },
+    attributes: [ "base", "price" ],
     where: {
       id: req.params.id,
     },
