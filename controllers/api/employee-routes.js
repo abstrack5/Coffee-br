@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Employee, Order } = require("../../models");
 
-// /api/users get all users
+// /api/employees
 router.get("/", (req, res) => {
   Employee.findAll({
     attributes: {
