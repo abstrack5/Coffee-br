@@ -1,6 +1,6 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const sequelize = require("../../config/connection");
-const { Employee } = require("../../models");
+const { Employee, Order } = require("../../models");
 
 // /api/users get all users
 router.get("/", (req, res) => {
@@ -10,10 +10,99 @@ router.get("/", (req, res) => {
     },
   })
     .then((dbEmployeeData) => res.json(dbEmployeeData))
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
       res.status(500).json(err);
-  })
+    });
 });
 
+router.get("/:id", (req, res) => {
+  Employee.findOne({
+    attributes: { exclude: ["password"] },
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Order,
+        attributes: [
+          "id",
+          "customer",
+          "coffee_base",
+          "dairy_type",
+          "sweetener_type",
+          "flavor_type",
+        ],
+      },
+    ],
+  })
+    .then((dbEmployeeData) => {
+      if (!dbEmployeeData) {
+        res.status(404).json({ message: "No user found with this id" });
+        return;
+      }
+      res.json(dbEmployeeData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.post("/", (req, res) => {
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  Employee.create({
+    username: req.body.username,
+    password: req.body.password,
+    pin: req.body.pin,
+  }).then((dbEmployeeData) => res.json(dbEmployeeData));
+  //   req.session.save(() => {
+  //     req.session.user_id = dbUserData.id;
+  //     req.session.username = dbUserData.username;
+  //     req.session.loggedIn = true;
+
+  //     res.json(dbEmployeeData);
+  //   });
+  // });
+});
+
+router.put("/:id", (req, res) => {
+  Employee.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbEmployeeData) => {
+      if (!dbEmployeeData) {
+        res.status(404).json({ message: "No employee found with this id" });
+        return;
+      }
+      res.json(dbEmployeeData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// login and logout
+
+router.delete("/:id", (req, res) => {
+  Employee.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbEmployeeData) => {
+      if (!dbEmployeeData) {
+        res.status(404).json({ message: "No employee found with this id" });
+        return;
+      }
+      res.json(dbEmployeeData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 module.exports = router;
