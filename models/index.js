@@ -1,67 +1,38 @@
-const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comment');
-const Likes = require('./Likes');
+const Employee = require('./Employee');
+const Coffee = require('./Coffee');
+const Dairy = require('./Dairy');
+const Flavor = require('./Flavor');
+const Sweetener = require('./Sweetener');
+const Order = require('./Order');
 
 
-User.hasMany(Post, {
-    foreignKey: 'user_id'
-  });
-  
-  Post.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-  });
-  
-  User.belongsToMany(Post, {
-    through: Likes,
-    as: 'liked_posts',
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-  });
-  
-  Post.belongsToMany(User, {
-    through: Likes,
-    as: 'liked_posts',
-    foreignKey: 'post_id',
-    onDelete: 'SET NULL'
-  });
-  
-  Likes.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-  });
-  
-  Likes.belongsTo(Post, {
-    foreignKey: 'post_id',
-    onDelete: 'SET NULL'
-  });
-  
-  User.hasMany(Likes, {
-    foreignKey: 'user_id'
-  });
-  
-  Post.hasMany(Likes, {
-    foreignKey: 'post_id'
-  });
-  
-  Comment.belongsTo(User, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-  });
-  
-  Comment.belongsTo(Post, {
-    foreignKey: 'post_id',
-    onDelete: 'SET NULL'
-  });
-  
-  User.hasMany(Comment, {
-    foreignKey: 'user_id',
-    onDelete: 'SET NULL'
-  });
-  
-  Post.hasMany(Comment, {
-    foreignKey: 'post_id'
-  });
-  
-  module.exports = { User, Post, Likes, Comment };
+Employee.hasMany(Order, {
+  foreignKey: 'employee_id'
+});
+
+Order.belongsTo(Employee, {
+  foreignKey: 'employee_id',
+  onDelete: 'SET NULL'
+});
+
+Coffee.belongsTo(Order, {
+  foreignKey: 'coffee_base',
+  onDelete: 'SET NULL'
+});
+
+Dairy.belongsTo(Order, {
+  foreignKey: 'dairy_type',
+  onDelete: 'SET NULL'
+});
+
+Flavor.belongsTo(Order, {
+  foreignKey: 'flavor_type',
+  onDelete: 'SET NULL'
+});
+
+Sweetener.belongsTo(Order, {
+  foreignKey: 'sweetener_type',
+  onDelete: 'SET NULL'
+});
+
+module.exports = { Employee, Coffee, Dairy, Flavor, Sweetener, Order };
