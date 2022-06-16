@@ -12,27 +12,26 @@ Employee.hasMany(Order, {
 
 Order.belongsTo(Employee, {
   foreignKey: 'employee_id',
-  onDelete: 'SET NULL'
 });
 
-Coffee.belongsTo(Order, {
+Coffee.belongsToMany(Order, {
+  through: Order,
   foreignKey: 'coffee_base',
-  onDelete: 'SET NULL'
 });
 
-Dairy.belongsTo(Order, {
+Dairy.belongsToMany(Order, {
+  through: Order,
   foreignKey: 'dairy_type',
-  onDelete: 'SET NULL'
 });
 
-Flavor.belongsTo(Order, {
+Flavor.belongsToMany(Order, {
+  through: Order,
   foreignKey: 'flavor_type',
-  onDelete: 'SET NULL'
 });
 
-Sweetener.belongsTo(Order, {
+Sweetener.belongsToMany(Order, {
+  through: Order,
   foreignKey: 'sweetener_type',
-  onDelete: 'SET NULL'
 });
 
 module.exports = { Employee, Coffee, Dairy, Flavor, Sweetener, Order };

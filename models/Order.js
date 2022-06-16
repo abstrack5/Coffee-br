@@ -13,7 +13,7 @@ Order.init(
       autoIncrement: true,
     },
     employee_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references : {
         model: "employee",
@@ -25,7 +25,7 @@ Order.init(
       allowNull: false,
     },
     coffee_base: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: "coffee",
@@ -33,7 +33,7 @@ Order.init(
       },
     },
     dairy_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: "dairy",
@@ -41,7 +41,7 @@ Order.init(
       },
     },
     sweetener_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: "sweetener",
@@ -49,7 +49,7 @@ Order.init(
       },
     },
     flavor_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
       references: {
         model: "flavor",
