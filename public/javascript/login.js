@@ -20,11 +20,11 @@ $(document).ready(() => {
     })
 
     function login(username, password) {
-        $.post('/api/login', {
+        $.post('/api/employees/login', {
             username: username,
             password: password
         }).then(() => {
-            window.location.replace('/index')
+            window.location.replace('/')
         }).catch(err => {
             console.log(err);
         });
