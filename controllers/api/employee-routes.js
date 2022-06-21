@@ -50,24 +50,23 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/signup", withAuth, (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+router.post("/signup", (req, res) => {
   Employee.create({
     username: req.body.username,
     password: req.body.password,
     pin: req.body.pin,
-  }).then((dbEmployeeData) => res.json(dbEmployeeData));
-  //   req.session.save(() => {
-  //     req.session.user_id = dbUserData.id;
-  //     req.session.username = dbUserData.username;
-  //     req.session.loggedIn = true;
+  })
+    req.session.save(() => {
+      req.session.employee_id = dbUserData.id;
+      req.session.username = dbUserData.username;
+      req.session.loggedIn = true;
 
-  //     res.json(dbEmployeeData);
-  //   });
-  // });
-});
+      res.json(dbEmployeeData);
+    });
+  });
 
-router.put("/:id", withAuth, (req, res) => {
+
+router.put("/:id", (req, res) => {
   Employee.update(req.body, {
     where: {
       id: req.params.id,
@@ -89,7 +88,6 @@ router.put("/:id", withAuth, (req, res) => {
 // login and logout
 
 router.post("/login", (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
       email: req.body.email,
@@ -108,7 +106,7 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = dbUserData.id;
+      req.session.employee_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
 
@@ -127,7 +125,7 @@ router.post("/logout", (req, res) => {
   }
 });
 
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id", (req, res) => {
   Employee.destroy({
     where: {
       id: req.params.id,

@@ -1,9 +1,9 @@
 $(document).ready(() => {
   // Getting references to our form and input
   const signUpForm = $("#signup-form");
-  const employeeName = $("#username");
-  const pin = $("input#pin");
-  const password = $("input#password");
+  const employeeName = $("#user-signup");
+  const pin = $("#pin-signup");
+  const password = $("#password-signup");
 
   // When the signup button is clicked, we validate the employeeName and password are not blank
   signUpForm.on("submit", (event) => {
@@ -30,7 +30,7 @@ $(document).ready(() => {
       pin: pin,
     })
       .then(() => {
-        window.location.replace("/");
+        window.location.replace("/dashboard");
       })
       .catch((err) => {
         console.log(err);
