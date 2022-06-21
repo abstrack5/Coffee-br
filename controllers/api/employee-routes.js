@@ -50,7 +50,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/signup", withAuth, (req, res) => {
+router.post("/", withAuth, (req, res) => {
   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   Employee.create({
     username: req.body.username,
@@ -145,4 +145,6 @@ router.delete("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 module.exports = router;

@@ -1,39 +1,29 @@
-$(document).ready(() => {
-  // Getting references to our form and input
-  const signUpForm = $("#signup-form");
-  const employeeName = $("#username");
-  const pin = $("input#pin");
-  const password = $("input#password");
+async function signupFormHandler(event) {
+  event.preventDefault();
 
-  // When the signup button is clicked, we validate the employeeName and password are not blank
-  signUpForm.on("submit", (event) => {
-    event.preventDefault();
-    const userData = {
-      employeeName: employeeName.val().trim(),
-      password: password.val().trim(),
-      pin: pin.val().trim(),
-    };
+  const username = document.querySelector("#username").value.trim();
+  const password = document.querySelector("#password").value.trim();
+  const pin = document.querySelector("#pin").value.trim();
 
-    if (!userData.username || !userData.password || !userData.pin) {
-      return;
+  if (username && password && pin) {
+    const response = await fetch("/api/employees", {
+      method: "post",
+      body: JSON.stringify({
+        username,
+        password,
+        pin,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    if (response.ok) {
+      document.location.replace("/");
+    } else {
+      alert(response.statusText);
     }
-    // If we have an employeeName and password, run the signUpUser function
-    signUpEmp(userData.username, userData.password, userData.pin);
-    employeeName.val("");
-    password.val("");
-  });
-
-  function signUpEmp(username, password, pin) {
-    $.post("/api/employees/signup", {
-      username: username,
-      password: password,
-      pin: pin,
-    })
-      .then(() => {
-        window.location.replace("/");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }
-});
+}
+
+document
+  .querySelector(".signup-form")
+  .addEventListener("submit", signupFormHandler);
