@@ -114,7 +114,7 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.employee_id = dbEmployeeData.id;
+      req.session.employee_id = dbEmployeeData.employee_id;
       req.session.username = dbEmployeeData.username;
       req.session.loggedIn = true;
 
