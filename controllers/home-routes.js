@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const {Order} = require("../models");
+const { Coffee, Dairy, Employee, Flavor, Order, Sweetener } = require("../models");
 
 router.get("/", (req, res) => {
   Order.findAll({
@@ -38,11 +38,17 @@ router.get("/", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+
+  });
+
+router.get("/", (req, res) => {
+  res.render("login");
+
 });
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
 
@@ -52,7 +58,6 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
-
 
 
 module.exports = router;
