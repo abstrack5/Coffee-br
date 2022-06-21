@@ -4,14 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-<<<<<<< HEAD
+
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "watch": "nodemon server.js"
-=======
-    "devStart": "nodemon server.js",
-    "start": "node server.js"
->>>>>>> 6dde2eb79370c9958bf62893c3f0fd83bc685f2a
   },
   "repository": {
     "type": "git",

@@ -11,7 +11,6 @@ const sequelize = require('./config/connection');
 const hbs = exphbs.create({});
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-<<<<<<< HEAD
 require('dotenv').config();
 
 const sess = {
@@ -24,18 +23,6 @@ const sess = {
     })
 }
 
-=======
-const sess = {
-    secret: process.env.SECRET,
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
-}
-
->>>>>>> 6dde2eb79370c9958bf62893c3f0fd83bc685f2a
 app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
