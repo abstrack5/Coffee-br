@@ -1,33 +1,27 @@
-$(document).ready(() => {
-    const loginForm = $('#login-form');
-    const email = $('#username');
-    const password = $('#password');
+async function login (event) {
+    event.preventDefault();
 
-    loginForm.on('submit', event => {
-        event.preventDefault();
-        const userObj = {
-            userName: email.val().trim(),
-            password: password.val().trim()
-        };
+    const username = document.querySelector('#username-login').value.trim();
+    const password = document.querySelector('#password-login').value.trim();
 
-        if (!userObj.userName || !userObj.password) {
-            return;
-        }
-
-        login(userObj.userName, userObj.password);
-        email.val('');
-        password.val('');
-    })
-
-    function login(username, password) {
-        $.post('/api/employees/login', {
-            username: username,
-            password: password
-        }).then(() => {
-            window.location.replace('/')
-        }).catch(err => {
-            console.log(err);
+    if (username && password) {
+        const response = await fetch('/api/employees/login', {
+            method: 'post',
+            body: JSON.stringify({
+                username,
+                password
+            }),
+            headers: { "Content-Type": "application/json"}
         });
-    }
 
-})
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert("Error: Invalid credentials");
+        }
+    }
+};
+
+
+
+document.querySelector(".login-form").addEventListener("submit", login);

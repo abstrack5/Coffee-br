@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../../config/connection");
 const { Employee, Order } = require("../../models");
-const withAuth = require('../../utils/auth.js');
+const withAuth = require("../../utils/auth.js");
 
 // /api/employees
 router.get("/", (req, res) => {
@@ -50,21 +50,13 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/signup", (req, res) => {
+router.post("/", (req, res) => {
   Employee.create({
     username: req.body.username,
     password: req.body.password,
     pin: req.body.pin,
-  })
-    req.session.save(() => {
-      req.session.employee_id = dbUserData.id;
-      req.session.username = dbUserData.username;
-      req.session.loggedIn = true;
-
-      res.json(dbEmployeeData);
-    });
-  });
-
+  }).then((dbEmployeeData) => res.json(dbEmployeeData));
+});
 
 router.put("/:id", (req, res) => {
   Employee.update(req.body, {
@@ -90,15 +82,15 @@ router.put("/:id", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email,
+      username: req.body.username,
     },
-  }).then((dbUserData) => {
-    if (!dbUserData) {
+  }).then((dbEmployeeData) => {
+    if (!dbEmployeeData) {
       res.status(400).json({ message: "No user with that email address!" });
       return;
     }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+    const validPassword = dbEmployeeData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: "Incorrect password!" });
@@ -106,11 +98,11 @@ router.post("/login", (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.employee_id = dbUserData.id;
-      req.session.username = dbUserData.username;
+      req.session.employee_id = dbEmployeeData.id;
+      req.session.username = dbEmployeeData.username;
       req.session.loggedIn = true;
 
-      res.json({ user: dbUserData, message: "You are now logged in!" });
+      res.json({ user: dbEmployeeData, message: "You are now logged in!" });
     });
   });
 });
@@ -143,4 +135,5 @@ router.delete("/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
+
 module.exports = router;
