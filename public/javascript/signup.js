@@ -1,9 +1,9 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const username = document.querySelector("#username").value.trim();
-  const password = document.querySelector("#password").value.trim();
-  const pin = document.querySelector("#pin").value.trim();
+  const username = document.querySelector("#username-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
+  const pin = document.querySelector("#pin-signup").value.trim();
 
   if (username && password && pin) {
     const response = await fetch("/api/employees", {
