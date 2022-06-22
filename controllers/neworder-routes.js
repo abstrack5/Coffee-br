@@ -10,8 +10,10 @@ const {
   Sweetener,
 } = require("../models");
 
-router.get('/', (req, res) =>  {
-    res.render("neworder");
+router.get("/", (req, res) => {
+  res.render("neworder", {
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 module.exports = router;
