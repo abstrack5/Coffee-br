@@ -1,9 +1,9 @@
 async function createNewOrder(event) {
   event.preventDefault();
 
-  const employee_id = document
-  .querySelector('input[id="employeeId"]')
-  .value.trim();
+  // const employee_id = document
+  // .querySelector('input[id="employeeId"]')
+  // .value.trim();
   const coffee_base = document
     .querySelector('input[name="coffee_base"]:checked')
     .value.trim();
@@ -19,11 +19,11 @@ async function createNewOrder(event) {
     .querySelector('input[name="flavor_type"]:checked')
     .value.trim();
 
-  if (employee_id && customer && coffee_base && milk_type && sweetener_type && flavor_type) {
+  if (customer && coffee_base && milk_type && sweetener_type && flavor_type) {
     const response = await fetch("/api/orders", {
       method: "POST",
       body: JSON.stringify({
-        employee_id,
+        // employee_id,
         customer,
         coffee_base,
         milk_type,

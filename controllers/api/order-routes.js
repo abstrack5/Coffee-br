@@ -58,7 +58,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     Order.create({
-        employee_id: req.body.employee_id,
+        employee_id: req.session.employee_id,
         customer: req.body.customer,
         coffee_base: req.body.coffee_base,
         dairy_type: req.body.dairy_type,
