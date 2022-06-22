@@ -105,9 +105,9 @@ router.post("/login", (req, res) => {
       res.status(400).json({ message: "No user with that email address!" });
       return;
     }
-    
+    console.log(dbEmployeeData)
     req.session.save(() => {
-      req.session.employee_id = dbEmployeeData.employee_id;
+      req.session.employee_id = dbEmployeeData.id;
       req.session.username = dbEmployeeData.username;
       req.session.loggedIn = true;
 
