@@ -1,9 +1,10 @@
 <div class="wrapper">
   <section class="my-5">
-    <h2 class="title">Create New order</h2>
-    <form>
+    <h2 class="title"><strong>Create New Order</strong> </h2>
+    <form class="createOrder-form" method="post">
       <label for="customername">Customer Name:</label>
-      <input type="text" id="customername" name="customername"><br>
+      <input type="text" id="customername" name="customername" style="border-width: 1px; border-radius: 0.375rem; margin-top: 0.5rem;"><br>
+      <div class="flex-container ">
       <fieldset>
         <legend>Coffee Base:</legend>
         <input type="radio" id="base_espresso" name="coffee_base" value="espresso">
@@ -48,7 +49,10 @@
         <input type="radio" id="lavender_flavor" name="flavor_type" value="lavender">
         <label for="lavender_flavor">Lavender</label><br>
       </fieldset>
-      <button type="submit">Submit</button>
+      </div>
+      <button class="px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">Submit</button>
     </form>
   </section>
 </div>
+
+<script src="/javascript/createOrder.js"></script>
