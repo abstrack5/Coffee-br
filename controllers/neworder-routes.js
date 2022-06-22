@@ -11,7 +11,9 @@ const {
 } = require("../models");
 
 router.get('/', (req, res) =>  {
-    res.render("neworder");
+    res.render("neworder", {
+      loggedIn: req.session.loggedIn,
+    });
 });
 
 module.exports = router;
