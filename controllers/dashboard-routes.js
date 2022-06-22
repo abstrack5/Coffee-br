@@ -12,7 +12,7 @@ const withAuth = require("../utils/auth");
 
 
 router.get("/", (req, res) => {
-  res.render("dashboard");
+  res.render("homepage");
 });
 
 module.exports = router;
