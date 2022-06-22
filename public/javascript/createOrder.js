@@ -1,42 +1,42 @@
 async function createNewOrder(event) {
   event.preventDefault();
 
-  const coffeeBase = document
+  // const employee_id = document
+  // .querySelector('input[id="employeeId"]')
+  // .value.trim();
+  const coffee_base = document
     .querySelector('input[name="coffee_base"]:checked')
     .value.trim();
-  const milkType = document
+  const milk_type = document
     .querySelector('input[name="milk_type"]:checked')
     .value.trim();
-  const sweetenerType = document
+  const sweetener_type = document
     .querySelector('input[name="sweetener_type"]:checked')
     .value.trim();
-  const customerName = document.querySelector("#customername").value.trim();
+  const customer = document.querySelector("#customername").value.trim();
 
-  const flavorType = document
+  const flavor_type = document
     .querySelector('input[name="flavor_type"]:checked')
     .value.trim();
 
-  if (customerName && coffeeBase && milkType && sweetenerType && flavorType) {
+  if (customer && coffee_base && milk_type && sweetener_type && flavor_type) {
     const response = await fetch("/api/orders", {
       method: "POST",
       body: JSON.stringify({
-        customerName,
-        coffeeBase,
-        milkType,
-        sweetenerType,
-        flavorType,
+        // employee_id,
+        customer,
+        coffee_base,
+        milk_type,
+        sweetener_type,
+        flavor_type,
       }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      alert(
-        `Order Create with ${coffeeBase} ,${milkType} and ${sweetenerType}`
-      );
+      document.location.replace('/homepage');
     }
   }
 }
 
-document
-  .querySelector(".createOrder-form")
-  .addEventListener("submit", createNewOrder);
+document.querySelector(".createOrder-form").addEventListener("submit", createNewOrder);

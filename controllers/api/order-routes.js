@@ -58,12 +58,12 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     Order.create({
-        employee_id: req.body.employee_id,
-        customer: req.params.customer,
-        coffee_base: req.params.coffee_base,
-        dairy_type: req.params.dairy_type,
-        sweetener_type: req.params.sweetener_type,
-        flavor_type: req.params.flavor_type
+        employee_id: req.session.employee_id,
+        customer: req.body.customer,
+        coffee_base: req.body.coffee_base,
+        dairy_type: req.body.dairy_type,
+        sweetener_type: req.body.sweetener_type,
+        flavor_type: req.body.flavor_type
     }).then((dbOrderData) => res.json(dbOrderData))
         .catch((err) => {
             console.log(err);
