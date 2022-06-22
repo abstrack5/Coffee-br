@@ -12,7 +12,7 @@ const {
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, (req, res) => {
-  res.render("dashboard", {
+  res.render("homepage", {
     loggedIn: req.session.loggedIn,
   });
 });
