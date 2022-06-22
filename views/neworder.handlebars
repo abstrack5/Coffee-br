@@ -1,10 +1,12 @@
-<div class="wrapper">
-  <section class="my-5">
-    <h2 class="title">Create New order</h2>
-    <form>
-      <label for="customername">Customer Name:</label>
-      <input type="text" id="customername" name="customername"><br>
-      <fieldset>
+<div class="">
+  <section class="text-gray-50 bg-white shadow dark:bg-gray-800 p-5 m-10 rounded-md">
+    <h2 class="text-lg mb-5">Create New order</h2>
+    <form class="flex flex-wrap content-start">
+      <fieldset class="m-3">
+        <label for="customername">Customer Name:</label>
+        <input type="text" id="customername" name="customername" class="rounded-md"><br>
+      </fieldset>
+      <fieldset class="m-3">
         <legend>Coffee Base:</legend>
         <input type="radio" id="base_espresso" name="coffee_base" value="espresso">
         <label for="base_espresso">Espresso</label><br>
@@ -17,7 +19,7 @@
         <input type="radio" id="base_coldbrew" name="coffee_base" value="coldbrew">
         <label for="base_coldbrew">Cold Brew</label><br>
       </fieldset>
-      <fieldset>
+      <fieldset class="m-3">
         <legend>Milk:</legend>
         <input type="radio" id="whole_milk" name="milk_type" value="whole">
         <label for="whole_milk">Whole Milk</label><br>
@@ -28,7 +30,7 @@
         <input type="radio" id="almond_milk" name="milk_type" value="almond">
         <label for="almond_milk">Almond Milk</label><br>
       </fieldset>
-      <fieldset>
+      <fieldset class="m-3">
         <legend>Sweetener:</legend>
         <input type="radio" id="sweet_sugar" name="sweetener_type" value="sugar">
         <label for="sweet_sugar">Sugar</label><br>
@@ -37,7 +39,7 @@
         <input type="radio" id="sweet_stevia" name="sweetener_type" value="stevia">
         <label for="sweet_stevia">Stevia</label><br>
       </fieldset>
-      <fieldset>
+      <fieldset class="m-3">
         <legend>Flavor:</legend>
         <input type="radio" id="vanilla_flavor" name="flavor_type" value="vanilla">
         <label for="vanilla_flavor">Vanilla</label><br>
@@ -48,7 +50,7 @@
         <input type="radio" id="lavender_flavor" name="flavor_type" value="lavender">
         <label for="lavender_flavor">Lavender</label><br>
       </fieldset>
-      <button type="submit">Submit</button>
+      <button type="submit" class="w-20 h-10 ml-5 bg-white text-gray-800 self-center rounded-md">Submit</button>
     </form>
   </section>
 </div>
