@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const sequelize = require("../../config/connection");
 const { Employee, Order } = require("../../models");
 const withAuth = require("../../utils/auth.js");
+const bcrypt = require("bcrypt");
 
 // /api/employees
 router.get("/", (req, res) => {
@@ -96,7 +96,7 @@ router.put("/:id", (req, res) => {
 // login and logout
 
 router.post("/login", (req, res) => {
-  User.findOne({
+  Employee.findOne({
     where: {
       username: req.body.username,
     },
@@ -105,14 +105,7 @@ router.post("/login", (req, res) => {
       res.status(400).json({ message: "No user with that email address!" });
       return;
     }
-
-    const validPassword = dbEmployeeData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res.status(400).json({ message: "Incorrect password!" });
-      return;
-    }
-
+    
     req.session.save(() => {
       req.session.employee_id = dbEmployeeData.employee_id;
       req.session.username = dbEmployeeData.username;
@@ -120,6 +113,8 @@ router.post("/login", (req, res) => {
 
       res.json({ user: dbEmployeeData, message: "You are now logged in!" });
     });
+
+    console.log(req.session);
   });
 });
 

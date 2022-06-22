@@ -2,14 +2,14 @@ async function login (event) {
     event.preventDefault();
 
     const username = document.querySelector('#username-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const pin = document.querySelector('#pin-login').value.trim();
 
-    if (username && password) {
+    if (username && pin) {
         const response = await fetch('/api/employees/login', {
             method: 'post',
             body: JSON.stringify({
                 username,
-                password
+                pin
             }),
             headers: { "Content-Type": "application/json"}
         });
