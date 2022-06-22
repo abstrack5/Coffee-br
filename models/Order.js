@@ -25,36 +25,36 @@ Order.init(
       allowNull: false,
     },
     coffee_base: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
-      references: {
-        model: "coffee",
-        key: "id",
-      },
+      // references: {
+      //   model: "coffee",
+      //   key: "id",
+      // },
     },
     dairy_type: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
-      references: {
-        model: "dairy",
-        key: "id",
-      },
+      // references: {
+      //   model: "dairy",
+      //   key: "id",
+      // },
     },
     sweetener_type: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
-      references: {
-        model: "sweetener",
-        key: "id",
-      },
+      // references: {
+      //   model: "sweetener",
+      //   key: "id",
+      // },
     },
     flavor_type: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
-      references: {
-        model: "flavor",
-        key: "id",
-      },
+      // references: {
+      //   model: "flavor",
+      //   key: "id",
+      // },
     },
   },
   {
