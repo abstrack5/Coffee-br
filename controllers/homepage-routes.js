@@ -17,7 +17,7 @@ router.get("/", withAuth, (req, res) => {
   });
 });
 
-router.post("/dashboard/create", withAuth, (req, res) => {
+router.post("/neworder/create", withAuth, (req, res) => {
   
 });
 
