@@ -1,9 +1,13 @@
 # COFFEE <BR>
 
 ## Technologies Used
-
+- Tailwind
+- javascript/jquery
+- node/npm packages
+- 
+  
 ## Preview
-View demo [_here_](https://google.com)
+View webssite [_here_]([https://google.com](https://limitless-everglades-24758.herokuapp.com/))
 
 ## Setup
 
