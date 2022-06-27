@@ -1,15 +1,10 @@
-const readyBtns = document.getElementsByClassName("ready-btn");
-
-for (const readyBtn of readyBtns) {
-    readyBtn.addEventListener("click", function onClick(event) {
-        //console.log(readyBtns);
-        readyBtn.textContent = "Picked Up";
-        readyBtn.setAttribute("class", "picked-up-btn p-1 text-stone-200 bg-stone-800 rounded-md hover:bg-stone-700 dark:bg-stone-100 dark:hover:bg-stone-300 dark:text-stone-800");
+document.getElementById("upcomingOrders").addEventListener("click", function onClick(event) {
+    if (event.target.classList.contains("ready-btn")) {
+        event.target.textContent = "Picked Up";
+        event.target.setAttribute("class", "picked-up-btn p-1 text-stone-200 bg-stone-800 rounded-md hover:bg-stone-700 dark:bg-stone-100 dark:hover:bg-stone-300 dark:text-stone-800");
         moveOrder(event.target.parentElement.id);
-        //console.log(pickedUpBtns);
-        //console.log(readyBtns);
-    });
-};
+    }
+});
 
 function moveOrder(readyId) {
     const completedOrdersEl = document.querySelector("#completedOrders");
@@ -17,14 +12,11 @@ function moveOrder(readyId) {
     completedOrdersEl.appendChild(orderMoved);
 };
 
-const pickedUpBtns = document.getElementsByClassName("picked-up-btn");
-
-for (const pickedUpBtn of pickedUpBtns) {
-    pickedUpBtn.addEventListener("click", function onClick(event) {
-        console.log(pickedUpBtns);
+document.getElementById("completedOrders").addEventListener("click", function onClick(event) {
+    if (event.target.classList.contains("picked-up-btn")) {
         orderPickedUp(event.target.parentElement.id);
-    });
-};
+    };
+});
 
 function orderPickedUp(comletedId) {
     const completedOrdersEl = document.querySelector("#completedOrders");
