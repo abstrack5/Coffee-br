@@ -7,7 +7,7 @@
 - 
   
 ## Preview
-View webssite [_here_]([https://google.com](https://limitless-everglades-24758.herokuapp.com/))
+View webssite [_here_](https://google.com](https://limitless-everglades-24758.herokuapp.com/)
 
 ## Setup
 
