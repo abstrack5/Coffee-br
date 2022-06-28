@@ -1,5 +1,5 @@
 # Coffee &lt;br&gt;
-Coffee &lt;br&gt; is an app that was created for employeers of a coffee shop in mind. Our app goal is to make it simple to place, track, update, edit and complete orders, as user friendly as possible. While also being optimized to keep up with the crazed coffee addicts.
+Coffee &lt;br&gt; is an app that was created for employeers of a coffee shop in mind. Our app goal is to make it simple to place, track, update, edit and complete orders, as user friendly as possible. While also being optimized to keep up with the crazed coffee addicts order requests.
 
 ## Table of Contents
 * [Technologies](#Technologies)
