@@ -1,13 +1,13 @@
 # Coffee &lt;br&gt;
 
 ## Table of Contents
-* [Technologies Used](#Technologies Used)
+* [Technologies](#Technologies)
 * [Preview](#Preview)
 * [Setup](#Setup)
 * [Collaborators](#Collaborators)
 * [Collaborators](#Collaborators)
 
-## Technologies Used
+## Technologies
 - Tailwind
 - javascript/jquery
 - node/npm packages
