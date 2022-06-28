@@ -1,5 +1,12 @@
 # Coffee &lt;br&gt;
 
+## Table of Contents
+* [Technologies Used](#Technologies Used)
+* [Preview](#Preview)
+* [Setup](#Setup)
+* [Collaborators](#Collaborators)
+* [Collaborators](#Collaborators)
+
 ## Technologies Used
 - Tailwind
 - javascript/jquery
@@ -10,8 +17,10 @@
 View website [_here_](https://limitless-everglades-24758.herokuapp.com/)
 
 ## Setup
-
-## Usage
+```
+npm install <br>
+npm start or npm run watch(nodemon) <br>
+```
 
 ## Collaborators
 * [Egemenelz](https://github.com/egemenelz)
