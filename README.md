@@ -18,8 +18,8 @@ View website [_here_](https://limitless-everglades-24758.herokuapp.com/)
 
 ## Setup
 ```
-npm install <br>
-npm start or npm run watch(nodemon) <br>
+npm install 
+npm start or npm run watch(nodemon) 
 ```
 
 ## Collaborators
