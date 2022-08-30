@@ -6,13 +6,11 @@ Coffee &lt;br&gt; is an app that was created for employeers of a coffee shop in 
 * [Preview](#Preview)
 * [Setup](#Setup)
 * [Collaborators](#Collaborators)
-* [Collaborators](#Collaborators)
 
 ## Technologies
 - Tailwind
 - javascript/jquery
 - node/npm packages
-- 
   
 ## Preview
 View website [_here_](https://limitless-everglades-24758.herokuapp.com/)
